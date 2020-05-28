@@ -10,7 +10,6 @@ import LayoutSignin from './layouts/LayoutSignin';
 // Views 
 import Home from './views/Home';
 import Dashboard from './views/Dashboard';
-import Contact from './views/Contact';
 import AboutUs from './views/AboutUs';
 import FAQ from './views/FAQ';
 import Login from './views/Login';
@@ -39,7 +38,6 @@ class App extends React.Component {
           <Switch>
             <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
             <AppRoute exact path="/dashboard" component={Dashboard} layout={LayoutDefault} />
-            <AppRoute exact path="/contact" component={Contact} layout={LayoutDefault} />
             <AppRoute exact path="/about-us" component={AboutUs} layout={LayoutDefault} />
             <AppRoute exact path="/FAQs" component={FAQ} layout={LayoutDefault} />
             <AppRoute exact path="/login" component={Login} layout={LayoutSignin} />
