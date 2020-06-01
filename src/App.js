@@ -3,8 +3,8 @@ import { withRouter, Switch } from 'react-router-dom';
 import AppRoute from './utils/AppRoute';
 import ScrollReveal from './utils/ScrollReveal';
 import Amplify, { Auth } from 'aws-amplify';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import awsconfig from './aws-exports';
-Amplify.configure(awsconfig);
 
 // Layouts
 import LayoutDefault from './layouts/LayoutDefault';
@@ -18,6 +18,19 @@ import FAQ from './views/FAQ';
 import Login from './views/Login';
 import Signup from './views/Signup';
 import Profile from './views/Profile';
+
+Amplify.configure(awsconfig);
+
+
+const PrivateRoute = () => {
+  return (
+    <div>
+      <h1> You have to be signed in to see this </h1>
+    </div>
+  )
+}
+
+const SignedInView = withAuthenticator(PrivateRoute)
 
 class App extends React.Component {
 
@@ -46,6 +59,7 @@ class App extends React.Component {
             <AppRoute exact path="/login" component={Login} layout={LayoutSignin} />
             <AppRoute exact path="/signup" component={Signup} layout={LayoutSignin} />
             <AppRoute exact path="/profile" component={Profile} layout={LayoutDefault} />
+            <AppRoute exact path="/private" component={SignedInView} />
           </Switch>
         )} />
     );
