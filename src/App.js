@@ -2,6 +2,9 @@ import React from 'react';
 import { withRouter, Switch } from 'react-router-dom';
 import AppRoute from './utils/AppRoute';
 import ScrollReveal from './utils/ScrollReveal';
+import Amplify, { Auth } from 'aws-amplify';
+import awsconfig from './aws-exports';
+Amplify.configure(awsconfig);
 
 // Layouts
 import LayoutDefault from './layouts/LayoutDefault';
